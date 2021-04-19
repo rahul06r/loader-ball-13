@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader ball ani</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+    }
+    
+    .conatiner {
+        position: relative;
+        -webkit-box-reflect: below 1px linear-gradient(#111, #000000);
+    }
+    
+    h2 {
+        color: #ff0000;
+        font-size: 40px;
+        margin-bottom: 20px;
+        animation: dot 4s linear infinite;
+    }
+    
+    span {
+        color: #ff0000;
+        font-size: 65px;
+        animation: dot 4s linear infinite;
+    }
+    
+    @keyframes dot {
+        0% {
+            filter: hue-rotate(0deg);
+        }
+        100% {
+            filter: hue-rotate(360deg);
+        }
+    }
+    
+    .circular {
+        position: relative;
+        border: 15px solid #ff0;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        box-shadow: 1px 1px 10px #ff0, -1px -1px 10px #ff0;
+    }
+    
+    .ball {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transition: .5s;
+        animation: rounded 3s ease-in-out infinite;
+    }
+    
+    @keyframes rounded {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(180deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+    
+    .ball::before {
+        content: "";
+        position: absolute;
+        bottom: 40%;
+        right: 1%;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #ff0000;
+        filter: hue-rotate(360deg);
+        box-shadow: -1px -1px 10px #ff0000;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>Loading Please wait <span>.</span> <span>.</span> <span>.</span></h2>
+        <div class="circular">
+            <div class="ball"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
